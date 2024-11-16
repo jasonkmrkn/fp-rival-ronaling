@@ -60,14 +60,9 @@ void load_net(cv::dnn::Net& net, bool is_cuda)
 int main()
 {
 	ESP32Communicator esp;
-	try {
-		esp.initialize("192.168.4.1", 8080);
-		esp.connectToServer();
-	}
-	catch (const std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
-		return -1;
-	}
+	esp.initialize("192.168.4.1", 8080);
+	esp.connectToServer();
+	
 	VideoCapture cap(camera);
 	if (!cap.isOpened())
 	{
